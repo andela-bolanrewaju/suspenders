@@ -78,6 +78,20 @@ module Suspenders
         :after => 'config.action_mailer.raise_delivery_errors = false'
     end
 
+    def enable_rack_canonical_host
+      config = <<-RUBY
+
+  # Ensure requests are only served from one, canonical host name
+  config.middleware.use Rack::CanonicalHost, ENV.fetch("HOST")
+      RUBY
+
+      inject_into_file(
+        "config/environments/production.rb",
+        config,
+        after: serve_static_files_line
+      )
+    end
+
     def enable_rack_deflater
       config = <<-RUBY
 
@@ -270,9 +284,9 @@ Rack::Timeout.timeout = (ENV["RACK_TIMEOUT"] || 10).to_i
     end
 
     def setup_stylesheets
-      remove_file 'app/assets/stylesheets/application.css'
-      copy_file 'application.css.scss',
-        'app/assets/stylesheets/application.css.scss'
+      remove_file "app/assets/stylesheets/application.css"
+      copy_file "application.scss",
+                "app/assets/stylesheets/application.scss"
     end
 
     def install_bitters

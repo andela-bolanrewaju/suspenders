@@ -26,6 +26,7 @@ generated projectname/Gemfile.
 It includes application gems like:
 
 * [Airbrake](https://github.com/airbrake/airbrake) for exception notification
+* [Autoprefixer Rails](https://github.com/ai/autoprefixer-rails) for CSS vendor prefixes
 * [Bourbon](https://github.com/thoughtbot/bourbon) for Sass mixins
 * [Bitters](https://github.com/thoughtbot/bitters) for scaffold application styles
 * [Delayed Job](https://github.com/collectiveidea/delayed_job) for background
@@ -40,6 +41,8 @@ It includes application gems like:
 * [New Relic RPM](https://github.com/newrelic/rpm) for monitoring performance
 * [Normalize](https://necolas.github.io/normalize.css/) for resetting browser styles
 * [Postgres](https://github.com/ged/ruby-pg) for access to the Postgres database
+* [Rack Canonical Host](https://github.com/tylerhunt/rack-canonical-host) to
+  ensure all requests are served from the same domain
 * [Rack Timeout](https://github.com/kch/rack-timeout) to abort requests that are
   taking too long
 * [Recipient Interceptor](https://github.com/croaky/recipient_interceptor) to
